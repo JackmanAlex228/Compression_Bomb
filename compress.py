@@ -12,6 +12,7 @@ dirs = os.listdir(path)                                 # list of items in path
 # go through all jpeg and png files in the directory and then copy
 # the compressed version of these files into a new folder
 for item in dirs:
+
     # [Errno 13] Permission denied: 'compressed_images'
     # in some tests, it would compress some images but not all of them
     if imghdr.what(item) == "jpeg" or imghdr.what(item) == "png":
