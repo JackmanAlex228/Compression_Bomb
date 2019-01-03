@@ -4,7 +4,8 @@ import os, sys, imghdr
 # scan all the photos in the same file as a script
 # save the compressed images into a new filder
 
-os.makedirs('compressed_images')                        # create new folder for comrpessed images
+newFile = 'compressed_images'                           # constant for name of new file
+os.makedirs(newFile)                                    # create new folder for comrpessed images
 path = os.path.dirname(os.path.realpath(__file__))      # path = the current directory of the python script
 dirs = os.listdir(path)                                 # list of items in path
 
@@ -16,4 +17,4 @@ for item in dirs:
     if imghdr.what(item) == "jpeg" or imghdr.what(item) == "png":
         image = Image.open(item)
         f, e = os.path.splitext(item)
-        image.save(path + "/compressed_images/" + f + "_optimized.jpg", optimized = True, quality = 50)
+        image.save(path + "/" + newFile + "/" + f + "_compressed.jpg", optimized = True, quality = 50)
