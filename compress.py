@@ -15,6 +15,7 @@ for item in dirs:
 
     # [Errno 13] Permission denied: 'compressed_images'
     # in some tests, it would compress some images but not all of them
+	# possible problem: dirs is a string, not an object
     if imghdr.what(item) == "jpeg" or imghdr.what(item) == "png":
         image = Image.open(item)
         f, e = os.path.splitext(item)
